@@ -46,22 +46,22 @@ haproxy:
     http-in:
       bind: '*:80'
       mode: http
-      default_backend: versionctl 
+      default_backend: streaker 
       reqadd: 'X-Forwarded-Proto:\ http'
       acl:
-        - 'versionctl path_beg -i /versionctl'
+        - 'versionctl path_beg -i /streaker'
       use_backend:
         - 'versionctl if versionctl_url'
 # Backend blocks
     backends:
-      versionctl:
+      streaker:
         balance: leastconn
         option:
           - forwardfor
           - httpclose
           - 'httpchk GET / HTTP/1.0'
         server:
-          app_name: versionctl-service
+          app_name: streaker-service
           options: check
           management_port: false # Doesn't check for second port definition
  
