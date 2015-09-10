@@ -1,0 +1,67 @@
+---
+# Where is your Marathon?
+marathon: http://<%= @ipaddress_eth0 %>:8080
+# Main HaProxy block
+haproxy:
+  global:
+    daemon:
+    log:
+      - '127.0.0.1 local0'
+      - '127.0.0.1 local1 notice'
+    maxconn: 4096
+  defaults:
+    log: global
+    mode: http
+    retries: 3
+    maxconn: 2000
+# Any HaProxy param that it utilized more than once can be passed a hash of op  tions
+    timeout:
+      connect: '5s'
+      client: '50s'
+      server: '50s'
+      http-keep-alive: 1s
+      http-request: 15s
+      queue: 30s
+      tarpit: 60s
+# Or an array of options
+    option:
+      - httplog
+      - dontlognull
+      - forwardfor
+      - http-server-close
+      - redispatch
+# Listen block for info
+  listens:
+    stats:
+      bind: '0.0.0.0:22002'
+      mode: http
+      stats:
+        - enable
+        - hide-version
+        - 'uri /'
+        - 'auth admin:admin'
+        - 'realm Haproxy\ Statistics'
+# Frontend blocks
+  frontends:
+    http-in:
+      bind: '*:80'
+      mode: http
+      default_backend: versionctl 
+      reqadd: 'X-Forwarded-Proto:\ http'
+      acl:
+        - 'versionctl path_beg -i /versionctl'
+      use_backend:
+        - 'versionctl if versionctl_url'
+# Backend blocks
+    backends:
+      versionctl:
+        balance: leastconn
+        option:
+          - forwardfor
+          - httpclose
+          - 'httpchk GET / HTTP/1.0'
+        server:
+          app_name: versionctl-service
+          options: check
+          management_port: false # Doesn't check for second port definition
+ 
