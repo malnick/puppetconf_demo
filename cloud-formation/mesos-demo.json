@@ -105,7 +105,7 @@
       "Type" : "AWS::EC2::NetworkAclEntry",
       "Properties" : {
         "NetworkAclId" : {"Ref" : "NetworkAcl"},
-        "RuleNumber" : "100",
+        "RuleNumber" : "104",
         "Protocol" : "6",
         "RuleAction" : "allow",
         "Egress" : "true",
