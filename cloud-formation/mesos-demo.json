@@ -339,7 +339,7 @@
           }
         },
         "InstanceType": "t2.medium",
-        "AvailabilityZone": "us-east-1",
+        "AvailabilityZone": "us-east-1c",
         "ImageId": "ami-86562dee",
         "Tags": [
           {
@@ -389,7 +389,7 @@
           }
         },
         "InstanceType": "t2.medium",
-        "AvailabilityZone": "us-east-1",
+        "AvailabilityZone": "us-east-1c",
         "ImageId": "ami-86562dee",
         "Tags": [
           {
@@ -439,12 +439,57 @@
           }
         },
         "InstanceType": "t2.medium",
-        "AvailabilityZone": "us-east-1",
+        "AvailabilityZone": "us-east-1c",
         "ImageId": "ami-86562dee",
         "Tags": [
           {
             "Key": "Name",
             "Value": "demo_mesosslave"
+          }
+        ]
+      }
+    },
+    "PuppetMaster": {
+      "Type": "AWS::EC2::Instance",
+      "Properties": {
+        "KeyName": "mesosdemo",
+        "SecurityGroupIds": [
+          {
+            "Ref": "PuppetSecurityGroup"  
+          }
+        ],
+        "SubnetId": { "Ref": "Subnet" },
+        "UserData": {
+          "Fn::Base64": {
+            "Fn::Join": [
+              "",
+              [
+                "#!\/bin\/sh -v\n",
+                "# Set basic variables for cloud-init\n",
+                "ROLE='demo_puppetmaster'\n",
+                "MASTER='https:\/\/puppet.technoblogic.com'\n",
+                "D_ROLE=$(echo $ROLE | tr '_' '-')\n",
+                "D_IP=$(hostname -I | tr '.' '-' | cut -d' ' -f1)\n",
+                "HOSTNAME=\"$(echo $D_ROLE)-$(echo $D_IP)\"\n",
+                "echo \"127.0.0.1 $HOSTNAME\" >> \/etc\/hosts",
+                "# Execute update to ensure we have recent packages\n",
+                "apt-get update && apt-get upgrade\n",
+                "# Set the hostname\n",
+                "echo $HOSTNAME > \/etc\/hostname\n",
+                "\/bin\/hostname $HOSTNAME\n",
+                "# Set the $::role fact\n",
+                "echo $ROLE > \/etc\/role\n",
+              ]
+            ]
+          }
+        },
+        "InstanceType": "m3.large",
+        "AvailabilityZone": "us-east-1c",
+        "ImageId": "ami-86562dee",
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "demo_puppetmaster"
           }
         ]
       }
