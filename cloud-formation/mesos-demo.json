@@ -139,6 +139,18 @@
         "PortRange" : {"From" : "1024", "To" : "65535"}
       }
     },
+    "OutBoundResponsePortsNetworkAclEntry" : {
+      "Type" : "AWS::EC2::NetworkAclEntry",
+      "Properties" : {
+        "NetworkAclId" : {"Ref" : "NetworkAcl"},
+        "RuleNumber" : "103",
+        "Protocol" : "6",
+        "RuleAction" : "allow",
+        "Egress" : "true",
+        "CidrBlock" : "0.0.0.0/0",
+        "PortRange" : {"From" : "22", "To" : "22"}
+      }
+    },
     "SubnetNetworkAclAssociation" : {
       "Type" : "AWS::EC2::SubnetNetworkAclAssociation",
       "Properties" : {
@@ -162,7 +174,6 @@
         "InstanceId" : { "Ref" : "PuppetMaster" }
       }
     },
-
     "MesosMasterSecurityGroup" : {
       "Type": "AWS::EC2::SecurityGroup",
       "Properties": {
@@ -438,6 +449,7 @@
                 "# Execute update to ensure we have recent packages\n",
                 "apt-get update && apt-get upgrade\n",
                 "# Set the hostname\n",
+
                 "echo $HOSTNAME > \/etc\/hostname\n",
                 "\/bin\/hostname $HOSTNAME\n",
                 "# Set the $::role fact\n",
