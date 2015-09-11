@@ -154,6 +154,15 @@
         "InstanceId" : { "Ref" : "MesosMaster" }
       }
     },
+    "IPAddress" : {
+      "Type" : "AWS::EC2::EIP",
+      "DependsOn" : "AttachGateway",
+      "Properties" : {
+        "Domain" : "vpc",
+        "InstanceId" : { "Ref" : "PuppetMaster" }
+      }
+    },
+
     "MesosMasterSecurityGroup" : {
       "Type": "AWS::EC2::SecurityGroup",
       "Properties": {
