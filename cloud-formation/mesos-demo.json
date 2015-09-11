@@ -282,7 +282,7 @@
         "Tags" : [ {"Key" : "Name", "Value" : "Puppet Security Group"} ]
       }
     },
-    "MesosMaster1": {
+    "MesosMaster": {
       "Type": "AWS::EC2::Instance",
       "Properties": {
         "KeyName": "mesosdemo",
@@ -332,7 +332,7 @@
         ]
       }
     }, 
-    "MesosSlave20": {
+    "MesosSlave2": {
       "Type": "AWS::EC2::Instance",
       "Properties": {
         "KeyName": "mesosdemo",
@@ -382,7 +382,7 @@
         ]
       }
     },
-    "MesosSlave10": {
+    "MesosSlave1": {
       "Type": "AWS::EC2::Instance",
       "Properties": {
         "KeyName": "mesosdemo",
