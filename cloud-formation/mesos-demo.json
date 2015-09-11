@@ -125,7 +125,7 @@
       "DependsOn" : "AttachGateway",
       "Properties" : {
         "Domain" : "vpc",
-        "InstanceId" : { "Ref" : "MesosMaster" }
+        "InstanceId" : { "Ref" : "MesosMaster1" }
       }
     },
     "PuppetMasterIPAddress" : {
@@ -282,7 +282,7 @@
         "Tags" : [ {"Key" : "Name", "Value" : "Puppet Security Group"} ]
       }
     },
-    "MesosMaster": {
+    "MesosMaster1": {
       "Type": "AWS::EC2::Instance",
       "Properties": {
         "KeyName": "mesosdemo",
@@ -307,7 +307,8 @@
                 "D_ROLE=$(echo $ROLE | tr '_' '-')\n",
                 "D_IP=$(hostname -I | tr '.' '-' | cut -d' ' -f1)\n",
                 "HOSTNAME=\"$(echo $D_ROLE)-$(echo $D_IP)\"\n",
-                "echo \"127.0.0.1 $HOSTNAME\" >> \/etc\/hosts",
+                "echo \"127.0.0.1 $HOSTNAME\" >> \/etc\/hosts\n",
+                "echo \"10.0.0.79 demo-puppetmaster-10-0-0-79\" >> \/etc\/hosts\n",
                 "# Execute update to ensure we have recent packages\n",
                 "apt-get update && apt-get upgrade\n",
                 "# Set the hostname\n",
@@ -332,7 +333,7 @@
         ]
       }
     }, 
-    "MesosSlave2": {
+    "MesosSlave20": {
       "Type": "AWS::EC2::Instance",
       "Properties": {
         "KeyName": "mesosdemo",
@@ -357,7 +358,8 @@
                 "D_ROLE=$(echo $ROLE | tr '_' '-')\n",
                 "D_IP=$(hostname -I | tr '.' '-' | cut -d' ' -f1)\n",
                 "HOSTNAME=\"$(echo $D_ROLE)-$(echo $D_IP)\"\n",
-                "echo \"127.0.0.1 $HOSTNAME\" >> \/etc\/hosts",
+                "echo \"127.0.0.1 $HOSTNAME\" >> \/etc\/hosts\n",
+                "echo \"10.0.0.79 demo-puppetmaster-10-0-0-79\" >> \/etc\/hosts\n",
                 "# Execute update to ensure we have recent packages\n",
                 "apt-get update && apt-get upgrade\n",
                 "# Set the hostname\n",
@@ -382,7 +384,7 @@
         ]
       }
     },
-    "MesosSlave1": {
+    "MesosSlave10": {
       "Type": "AWS::EC2::Instance",
       "Properties": {
         "KeyName": "mesosdemo",
@@ -407,7 +409,8 @@
                 "D_ROLE=$(echo $ROLE | tr '_' '-')\n",
                 "D_IP=$(hostname -I | tr '.' '-' | cut -d' ' -f1)\n",
                 "HOSTNAME=\"$(echo $D_ROLE)-$(echo $D_IP)\"\n",
-                "echo \"127.0.0.1 $HOSTNAME\" >> \/etc\/hosts",
+                "echo \"127.0.0.1 $HOSTNAME\" >> \/etc\/hosts\n",
+                "echo \"10.0.0.79 demo-puppetmaster-10-0-0-79\" >> \/etc\/hosts\n",
                 "# Execute update to ensure we have recent packages\n",
                 "apt-get update && apt-get upgrade\n",
                 "# Set the hostname\n",
