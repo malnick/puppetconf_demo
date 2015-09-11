@@ -339,7 +339,7 @@
           }
         },
         "InstanceType": "t2.medium",
-        "AvailabilityZone": "us-east-1c",
+        "AvailabilityZone": "us-east-1e",
         "ImageId": "ami-86562dee",
         "Tags": [
           {
@@ -389,7 +389,7 @@
           }
         },
         "InstanceType": "t2.medium",
-        "AvailabilityZone": "us-east-1c",
+        "AvailabilityZone": "us-east-1e",
         "ImageId": "ami-86562dee",
         "Tags": [
           {
@@ -439,7 +439,7 @@
           }
         },
         "InstanceType": "t2.medium",
-        "AvailabilityZone": "us-east-1c",
+        "AvailabilityZone": "us-east-1e",
         "ImageId": "ami-86562dee",
         "Tags": [
           {
@@ -478,13 +478,13 @@
                 "echo $HOSTNAME > \/etc\/hostname\n",
                 "\/bin\/hostname $HOSTNAME\n",
                 "# Set the $::role fact\n",
-                "echo $ROLE > \/etc\/role\n",
+                "echo $ROLE > \/etc\/role\n"
               ]
             ]
           }
         },
         "InstanceType": "m3.large",
-        "AvailabilityZone": "us-east-1c",
+        "AvailabilityZone": "us-east-1e",
         "ImageId": "ami-86562dee",
         "Tags": [
           {
