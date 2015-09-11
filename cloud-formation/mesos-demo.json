@@ -101,7 +101,7 @@
       "DependsOn" : "AttachGateway",
       "Properties" : {
         "Domain" : "vpc",
-        "InstanceId" : { "Ref" : "MesosMaster1" }
+        "InstanceId" : { "Ref" : "MesosMaster" }
       }
     },
     "PuppetMasterIPAddress" : {
