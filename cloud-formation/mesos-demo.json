@@ -294,7 +294,7 @@
         "Tags" : [ {"Key" : "Name", "Value" : "Puppet Security Group"} ]
       }
     },
-    "MesosMaster1": {
+    "MesosMaster": {
       "Type": "AWS::EC2::Instance",
       "Properties": {
         "KeyName": "mesosdemo",
@@ -345,7 +345,7 @@
         ]
       }
     }, 
-    "MesosSlave20": {
+    "MesosSlave2": {
       "Type": "AWS::EC2::Instance",
       "Properties": {
         "KeyName": "mesosdemo",
@@ -365,7 +365,7 @@
               [
                 "#!\/bin\/sh -v\n",
                 "# Set basic variables for cloud-init\n",
-                "ROLE='demo_mesosmaster'\n",
+                "ROLE='demo_mesosslave'\n",
                 "MASTER='https:\/\/10.0.0.79'\n",
                 "D_ROLE=$(echo $ROLE | tr '_' '-')\n",
                 "D_IP=$(hostname -I | tr '.' '-' | cut -d' ' -f1)\n",
@@ -396,7 +396,7 @@
         ]
       }
     },
-    "MesosSlave10": {
+    "MesosSlave1": {
       "Type": "AWS::EC2::Instance",
       "Properties": {
         "KeyName": "mesosdemo",
@@ -416,7 +416,7 @@
               [
                 "#!\/bin\/sh -v\n",
                 "# Set basic variables for cloud-init\n",
-                "ROLE='demo_mesosmaster'\n",
+                "ROLE='demo_mesosslave'\n",
                 "MASTER='https:\/\/10.0.0.79'\n",
                 "D_ROLE=$(echo $ROLE | tr '_' '-')\n",
                 "D_IP=$(hostname -I | tr '.' '-' | cut -d' ' -f1)\n",
