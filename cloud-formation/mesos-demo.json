@@ -125,7 +125,7 @@
       "DependsOn" : "AttachGateway",
       "Properties" : {
         "Domain" : "vpc",
-        "InstanceId" : { "Ref" : "MesosMaster" }
+        "InstanceId" : { "Ref" : "MesosMaster1" }
       }
     },
     "IPAddress" : {
@@ -282,7 +282,7 @@
         "Tags" : [ {"Key" : "Name", "Value" : "Puppet Security Group"} ]
       }
     },
-    "MesosMaster": {
+    "MesosMaster1": {
       "Type": "AWS::EC2::Instance",
       "Properties": {
         "KeyName": "mesosdemo",
@@ -332,7 +332,7 @@
         ]
       }
     }, 
-    "MesosSlave1": {
+    "MesosSlave20": {
       "Type": "AWS::EC2::Instance",
       "Properties": {
         "KeyName": "mesosdemo",
@@ -382,7 +382,7 @@
         ]
       }
     },
-    "MesosSlave2": {
+    "MesosSlave10": {
       "Type": "AWS::EC2::Instance",
       "Properties": {
         "KeyName": "mesosdemo",
