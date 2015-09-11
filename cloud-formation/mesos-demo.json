@@ -339,7 +339,7 @@
           }
         },
         "InstanceType": "t2.medium",
-        "AvailabilityZone": "us-west-1",
+        "AvailabilityZone": "us-east-1",
         "ImageId": "ami-86562dee",
         "Tags": [
           {
@@ -389,7 +389,7 @@
           }
         },
         "InstanceType": "t2.medium",
-        "AvailabilityZone": "us-west-1",
+        "AvailabilityZone": "us-east-1",
         "ImageId": "ami-86562dee",
         "Tags": [
           {
@@ -439,7 +439,7 @@
           }
         },
         "InstanceType": "t2.medium",
-        "AvailabilityZone": "us-west-1",
+        "AvailabilityZone": "us-east-1",
         "ImageId": "ami-86562dee",
         "Tags": [
           {
