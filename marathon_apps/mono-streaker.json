@@ -1,0 +1,21 @@
+{
+  "container": {
+    "type": "DOCKER",
+    "docker": {
+      "image": "malnick/streaker:monolith",
+      "network": "BRIDGE",
+      "portMappings": [
+        { "containerPort": 8000, "hostPort": 0, "protocol": "tcp" }
+      ]
+    }
+  },
+  "id": "streaker-service",
+  "instances": 1,
+  "cpus": 0.5,
+  "mem": 512,
+  "uris": []
+  "upgradeStrategy": {
+    "minimumHealthCapacity": 0.9,
+    "maximumOverCapacity": 0.5
+  }
+}
