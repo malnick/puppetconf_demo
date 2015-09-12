@@ -112,6 +112,22 @@
         "InstanceId" : { "Ref" : "PuppetMaster" }
       }
     },
+    "Slave1IPAddress" : {
+      "Type" : "AWS::EC2::EIP",
+      "DependsOn" : "AttachGateway",
+      "Properties" : {
+        "Domain" : "vpc",
+        "InstanceId" : { "Ref" : "MesosSlave1" }
+      }
+    },
+    "Slave2IPAddress" : {
+      "Type" : "AWS::EC2::EIP",
+      "DependsOn" : "AttachGateway",
+      "Properties" : {
+        "Domain" : "vpc",
+        "InstanceId" : { "Ref" : "MesosSlave2" }
+      }
+    },
     "MesosMasterSecurityGroup" : {
       "Type": "AWS::EC2::SecurityGroup",
       "Properties": {
@@ -307,7 +323,7 @@
         ]
       }
     }, 
-    "MesosSlave20": {
+    "MesosSlave2": {
       "Type": "AWS::EC2::Instance",
       "Properties": {
         "KeyName": "mesosdemo",
@@ -360,7 +376,7 @@
         ]
       }
     },
-    "MesosSlave10": {
+    "MesosSlave1": {
       "Type": "AWS::EC2::Instance",
       "Properties": {
         "KeyName": "mesosdemo",
