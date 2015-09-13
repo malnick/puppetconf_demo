@@ -2,7 +2,7 @@
   "container": {
     "type": "DOCKER",
     "docker": {
-      "image": "malnick/micropig",
+      "image": "malnick/micropig:latest",
       "network": "BRIDGE",
       "portMappings": [
         { "containerPort": 8000, "hostPort": 0, "protocol": "tcp" }
