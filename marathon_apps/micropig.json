@@ -2,14 +2,14 @@
   "container": {
     "type": "DOCKER",
     "docker": {
-      "image": "malnick/streaker:monolith",
+      "image": "malnick/micropig",
       "network": "BRIDGE",
       "portMappings": [
         { "containerPort": 8000, "hostPort": 0, "protocol": "tcp" }
       ]
     }
   },
-  "id": "streaker-service",
+  "id": "micropig-service",
   "instances": 1,
   "cpus": 0.5,
   "mem": 512,
