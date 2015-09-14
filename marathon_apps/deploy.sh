@@ -11,10 +11,7 @@ case "$1" in
     curl -XPOST -H 'Content-Type: application/json' -d @microscope.json streaker.technoblogic.io:8080/v2/apps/
     ;;
   streaker)
-    curl -XPOST -H 'Content-Type: application/json' -d @micro-streaker.json streaker.technoblogic.io:8080/v2/apps/
-    ;;
-  mono-streaker)
-    curl -XPOST -H 'Content-Type: application/json' -d @mono-streaker.json streaker.technoblogic.io:8080/v2/apps/
+    curl -XPOST -H 'Content-Type: application/json' -d @streaker.json streaker.technoblogic.io:8080/v2/apps/
     ;;
   *)
     "That won't work"
