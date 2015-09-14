@@ -16,5 +16,8 @@ case "$1" in
   mono-streaker)
     curl -XPOST -H 'Content-Type: application/json' -d @mono-streaker.json streaker.technoblogic.io:8080/v2/apps/
     ;;
+  *)
+    "That won't work"
+    ;;
 esac
 exit 0

@@ -178,8 +178,8 @@
           },
           {
             "IpProtocol": "tcp",
-            "FromPort": "22002",
-            "ToPort": "22002",
+            "FromPort": "8880",
+            "ToPort": "8880",
             "CidrIp": "0.0.0.0/0"
           }
         ],
