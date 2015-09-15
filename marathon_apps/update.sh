@@ -11,7 +11,7 @@ case "$1" in
     curl -XPUT -H 'Content-Type: application/json' -d @microscope.json streaker.technoblogic.io:8080/v2/apps/microscope-service
     ;;
   streaker)
-    curl -XPUT -H 'Content-Type: application/json' -d @micro-streaker.json streaker.technoblogic.io:8080/v2/apps/streaker-service
+    curl -XPUT -H 'Content-Type: application/json' -d @streaker.json streaker.technoblogic.io:8080/v2/apps/streaker-service
     ;;
   *)
     # Snarky that won't work comment

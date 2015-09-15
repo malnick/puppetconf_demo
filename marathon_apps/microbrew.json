@@ -2,6 +2,7 @@
   "container": {
     "type": "DOCKER",
     "docker": {
+      "forcePullImage": true,
       "image": "malnick/microbrew",
       "network": "BRIDGE",
       "portMappings": [
@@ -10,7 +11,7 @@
     }
   },
   "id": "microbrew-service",
-  "instances": 3,
+  "instances": 1,
   "cpus": 0.5,
   "mem": 512,
   "upgradeStrategy": {
