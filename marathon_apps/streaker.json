@@ -2,6 +2,7 @@
   "container": {
     "type": "DOCKER",
     "docker": {
+      "forcePullImage": true,
       "image": "malnick/streaker:micro",
       "network": "BRIDGE",
       "portMappings": [
