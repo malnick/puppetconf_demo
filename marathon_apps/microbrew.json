@@ -10,7 +10,7 @@
     }
   },
   "id": "microbrew-service",
-  "instances": 1,
+  "instances": 3,
   "cpus": 0.5,
   "mem": 512,
   "upgradeStrategy": {

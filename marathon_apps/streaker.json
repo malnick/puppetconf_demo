@@ -2,7 +2,7 @@
   "container": {
     "type": "DOCKER",
     "docker": {
-      "image": "malnick/streaker:mono",
+      "image": "malnick/streaker:micro",
       "network": "BRIDGE",
       "portMappings": [
         { "containerPort": 8000, "hostPort": 0, "protocol": "tcp" }
