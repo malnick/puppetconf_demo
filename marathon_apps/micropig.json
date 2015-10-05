@@ -10,9 +10,9 @@
     }
   },
   "id": "micropig-service",
-  "instances": 1,
-  "cpus": 0.5,
-  "mem": 512,
+  "instances": 3,
+  "cpus": 0.1,
+  "mem": 32,
   "upgradeStrategy": {
     "minimumHealthCapacity": 0.9,
     "maximumOverCapacity": 0.5

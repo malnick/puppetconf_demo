@@ -3,7 +3,7 @@
     "type": "DOCKER",
     "docker": {
       "forcePullImage": true,
-      "image": "malnick/streaker:micro",
+      "image": "malnick/streaker:v2",
       "network": "BRIDGE",
       "portMappings": [
         { "containerPort": 8000, "hostPort": 0, "protocol": "tcp" }
@@ -12,8 +12,8 @@
   },
   "id": "streaker-service",
   "instances": 1,
-  "cpus": 0.5,
-  "mem": 512,
+  "cpus": 0.25,
+  "mem": 64,
   "upgradeStrategy": {
     "minimumHealthCapacity": 0.9,
     "maximumOverCapacity": 0.5
