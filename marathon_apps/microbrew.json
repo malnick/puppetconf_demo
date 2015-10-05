@@ -12,8 +12,8 @@
   },
   "id": "microbrew-service",
   "instances": 5,
-  "cpus": 0.2,
-  "mem": 64,
+  "cpus": 0.1,
+  "mem": 32,
   "upgradeStrategy": {
     "minimumHealthCapacity": 0.9,
     "maximumOverCapacity": 0.5
